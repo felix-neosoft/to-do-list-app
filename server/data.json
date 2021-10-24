@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "fname": "Felix",
+      "lname": "Mathew",
+      "username": "relixmatrix",
+      "email": "felix@gmail.com",
+      "password": "Felix@123",
+      "id": 1
+    },
+    {
+      "fname": "Rahul",
+      "lname": "Chavan",
+      "username": "rahulchavan",
+      "email": "rahul@gmail.com",
+      "password": "Rahul@123",
+      "id": 2
+    }
+  ]
+}
