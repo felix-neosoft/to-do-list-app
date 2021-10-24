@@ -12,7 +12,7 @@ const theme = createTheme ({
 })
 
 const URL = "http://localhost:3001/users"
-const RegForEmail = RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.com$');
+const RegForEmail = RegExp('^[a-zA-Z0-9@.]{5,50}$');
 const RegForPassword = RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')
 class Login extends Component {
     constructor(props) {
@@ -59,10 +59,10 @@ class Login extends Component {
         if(this.validate(this.state.error))
         {
             let data = this.state.data
-            if(data.some(data => data.email === this.state.email && data.password === this.state.password )){    
-                let id = data.findIndex(i=> i.email === this.state.email)
+            if(data.some(data => (data.email === this.state.email && data.password === this.state.password) || (data.username === this.state.email && data.password === this.state.password) )){    
+                let id = data.findIndex(i=> (i.email === this.state.email) || (i.username === this.state.email))
+                sessionStorage.setItem("email",this.state.data[id].email)
                 id = parseInt(id)+1
-                sessionStorage.setItem("email",this.state.email)
                 sessionStorage.setItem("id",id)
                 sessionStorage.setItem("status",'isLogged')
                 window.location.replace('/todolist')

@@ -9,11 +9,11 @@
       "id": 1
     },
     {
-      "fname": "Rahul",
+      "fname": "Vinayak",
       "lname": "Chavan",
-      "username": "rahulchavan",
-      "email": "rahul@gmail.com",
-      "password": "Rahul@123",
+      "username": "vinayak123",
+      "email": "vinayak@gmail.com",
+      "password": "Vinayak@123",
       "id": 2
     }
   ]

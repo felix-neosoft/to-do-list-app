@@ -30,6 +30,7 @@ export class TodoList extends Component {
     logout = () =>{
         sessionStorage.setItem("id",null)
         sessionStorage.setItem("status",null)
+        sessionStorage.setItem("email",null)
         window.location.replace("/")
     }
 

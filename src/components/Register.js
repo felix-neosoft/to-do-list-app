@@ -24,8 +24,13 @@ class Register extends Component {
         this.state = {
 
             fname:"",lname:"", username:"",email:"",password:"",confirm_password:"", error:{fname:"",lname:"", username:"",email:"",password:"",confirm_password:""},
-            errorText:{fname:"",lname:"", username:"",email:"",password:"",confirm_password:""}
+            errorText:{fname:"",lname:"", username:"",email:"",password:"",confirm_password:""},data:[]
         }
+    }
+    componentDidMount(){
+        axios.get(URL).then((response)=>{
+            this.setState({data:response.data})
+        })
     }
 
     handler = (event) =>{
@@ -74,7 +79,15 @@ class Register extends Component {
         { 
             if(this.state.email!=="" && this.state.password!=="" && this.state.fname!=="" && this.state.lname!=="" && this.state.username!==""){
                 let data = {"fname":this.state.fname,"lname":this.state.lname,"username":this.state.username,"email":this.state.email,"password":this.state.password}
-                axios.post(URL,data).then(res=> window.location.replace("/"))
+                let existData = this.state.data
+                let existBoolean = false
+                if(existData.some(data=> (data.email === this.state.email) || (data.username === this.state.username))){
+                     existBoolean = true
+                }
+                if(existBoolean){
+                    alert("Email/Username already exist")
+                }
+                else{axios.post(URL,data).then(res=> window.location.replace("/"))}
             }
             else{
                 alert("Failed to Register")

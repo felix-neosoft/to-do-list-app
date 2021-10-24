@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={Index}/>
-          <Route path="/todolist" exact component={TodoList}/>
+          <Route path="/" exact component={Index}/> {/* Contains Login and Register Components */}
+          <Route path="/todolist" exact component={TodoList}/> {/* Contains TodoListAddTask and TodoListTable Components*/}
         </Switch>
       </Router>
     </div>
